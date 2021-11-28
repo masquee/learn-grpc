@@ -9,18 +9,19 @@ import (
 	"context"
 	"crypto/tls"
 	"errors"
+	"log"
+	"net"
+	"path/filepath"
+
 	wrapper "github.com/golang/protobuf/ptypes/wrappers"
 	"github.com/google/uuid"
 	pb "github.com/grpc-up-and-running/samples/ch02/productinfo/go/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
-	"log"
-	"net"
-	"path/filepath"
 )
 
 const (
-	port = ":50051"
+	port    = ":50051"
 	crtFile = filepath.Join("ch06", "secure-channel", "certs", "server.crt")
 	keyFile = filepath.Join("ch06", "secure-channel", "certs", "server.key")
 )

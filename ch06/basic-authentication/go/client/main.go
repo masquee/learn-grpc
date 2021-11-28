@@ -8,10 +8,11 @@ package main
 import (
 	"context"
 	"encoding/base64"
-	"google.golang.org/grpc/credentials"
 	"log"
 	"path/filepath"
 	"time"
+
+	"google.golang.org/grpc/credentials"
 
 	wrapper "github.com/golang/protobuf/ptypes/wrappers"
 	pb "github.com/grpc-up-and-running/samples/ch02/productinfo/go/product_info"

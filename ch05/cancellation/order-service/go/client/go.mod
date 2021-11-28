@@ -1,0 +1,9 @@
+module productinfo/client
+
+go 1.16
+
+require (
+	github.com/grpc-up-and-running/samples v1.0.0
+	google.golang.org/genproto v0.0.0-20180817151627-c66870c02cf8
+	google.golang.org/grpc v1.24.0
+)

@@ -2,12 +2,13 @@ package main
 
 import (
 	"context"
-	pb "github.com/grpc-up-and-running/samples/ch05/interceptors/order-service/go/order-service-gen"
-	wrapper "github.com/golang/protobuf/ptypes/wrappers"
-	"google.golang.org/grpc"
 	"io"
 	"log"
 	"time"
+
+	wrapper "github.com/golang/protobuf/ptypes/wrappers"
+	pb "github.com/grpc-up-and-running/samples/ch05/interceptors/order-service/go/order-service-gen"
+	"google.golang.org/grpc"
 )
 
 const (

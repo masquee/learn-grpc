@@ -2,16 +2,17 @@ package main
 
 import (
 	"context"
-	"github.com/golang/protobuf/ptypes/wrappers"
-	wrapper "github.com/golang/protobuf/ptypes/wrappers"
-	ordermgt_pb "github.com/grpc-up-and-running/samples/ch05/interceptors/order-service/go/order-service-gen"
-	hello_pb "google.golang.org/grpc/examples/helloworld/helloworld"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/reflection"
 	"io"
 	"log"
 	"net"
 	"strings"
+
+	"github.com/golang/protobuf/ptypes/wrappers"
+	wrapper "github.com/golang/protobuf/ptypes/wrappers"
+	ordermgt_pb "github.com/grpc-up-and-running/samples/ch05/interceptors/order-service/go/order-service-gen"
+	"google.golang.org/grpc"
+	hello_pb "google.golang.org/grpc/examples/helloworld/helloworld"
+	"google.golang.org/grpc/reflection"
 )
 
 const (

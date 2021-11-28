@@ -7,13 +7,14 @@ package main
 
 import (
 	"context"
+	"log"
+	"time"
+
 	"github.com/daneshk/samples/ch07/grpc-opentracing/go/tracer"
 	wrapper "github.com/golang/protobuf/ptypes/wrappers"
 	grpcopentracing "github.com/grpc-ecosystem/go-grpc-middleware/tracing/opentracing"
 	pb "github.com/grpc-up-and-running/samples/ch07/grpc-opentracing/go/proto"
 	"google.golang.org/grpc"
-	"log"
-	"time"
 )
 
 const (

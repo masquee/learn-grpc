@@ -7,16 +7,15 @@ package main
 
 import (
 	"context"
-	"errors"
 	"log"
 	"net"
 
+	"contrib.go.opencensus.io/exporter/jaeger"
 	wrapper "github.com/golang/protobuf/ptypes/wrappers"
 	"github.com/google/uuid"
 	pb "github.com/grpc-up-and-running/samples/ch07/grpc-prometheus/go/proto"
-	"google.golang.org/grpc"
 	"go.opencensus.io/trace"
-	"contrib.go.opencensus.io/exporter/jaeger"
+	"google.golang.org/grpc"
 )
 
 const (
@@ -66,7 +65,7 @@ func main() {
 		log.Fatalf("Failed to listen: %v", err)
 	}
 
-    // initialize opencensus jaeger exporter
+	// initialize opencensus jaeger exporter
 	initTracing()
 
 	if err := grpcServer.Serve(lis); err != nil {
@@ -74,24 +73,22 @@ func main() {
 	}
 }
 
-
 func initTracing() {
-    // This is a demo app with low QPS. trace.AlwaysSample() is used here
-    // to make sure traces are available for observation and analysis.
-    // In a production environment or high QPS setup please use
-    // trace.ProbabilitySampler set at the desired probability.
-    trace.ApplyConfig(trace.Config{DefaultSampler: trace.AlwaysSample()})
-    agentEndpointURI := "localhost:6831"
-    collectorEndpointURI := "http://localhost:14268/api/traces"
-     exporter, err := jaeger.NewExporter(jaeger.Options{
-             CollectorEndpoint: collectorEndpointURI,
-             AgentEndpoint: agentEndpointURI,
-             ServiceName: "product_info",
-
-     })
-     if err != nil {
-        log.Fatal(err)
-     }
-     trace.RegisterExporter(exporter)
+	// This is a demo app with low QPS. trace.AlwaysSample() is used here
+	// to make sure traces are available for observation and analysis.
+	// In a production environment or high QPS setup please use
+	// trace.ProbabilitySampler set at the desired probability.
+	trace.ApplyConfig(trace.Config{DefaultSampler: trace.AlwaysSample()})
+	agentEndpointURI := "localhost:6831"
+	collectorEndpointURI := "http://localhost:14268/api/traces"
+	exporter, err := jaeger.NewExporter(jaeger.Options{
+		CollectorEndpoint: collectorEndpointURI,
+		AgentEndpoint:     agentEndpointURI,
+		ServiceName:       "product_info",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	trace.RegisterExporter(exporter)
 
 }

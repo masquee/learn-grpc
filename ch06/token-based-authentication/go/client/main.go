@@ -7,11 +7,12 @@ package main
 
 import (
 	"context"
-	"google.golang.org/grpc/credentials"
-	"google.golang.org/grpc/credentials/oauth"
 	"log"
 	"path/filepath"
 	"time"
+
+	"google.golang.org/grpc/credentials"
+	"google.golang.org/grpc/credentials/oauth"
 
 	wrapper "github.com/golang/protobuf/ptypes/wrappers"
 	pb "github.com/grpc-up-and-running/samples/ch02/productinfo/go/product_info"
@@ -20,9 +21,9 @@ import (
 )
 
 const (
-	address = "localhost:50051"
+	address  = "localhost:50051"
 	hostname = "localhost"
-	crtFile = filepath.Join("ch06", "secure-channel", "certs", "server.crt")
+	crtFile  = filepath.Join("ch06", "secure-channel", "certs", "server.crt")
 )
 
 func main() {

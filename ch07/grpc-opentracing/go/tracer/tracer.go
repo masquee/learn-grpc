@@ -1,10 +1,8 @@
 package tracer
 
 import (
-	"github.com/uber/jaeger-client-go"
 	"io"
 
-	"github.com/opentracing/opentracing-go"
 	"github.com/uber/jaeger-client-go/config"
 	"github.com/uber/jaeger-client-go/log"
 	"github.com/uber/jaeger-lib/metrics/prometheus"

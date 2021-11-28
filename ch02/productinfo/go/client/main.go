@@ -10,8 +10,9 @@ import (
 	"log"
 	"time"
 
-	pb "productinfo/client/ecommerce"
 	"google.golang.org/grpc"
+
+	pb "productinfo/client/ecommerce"
 )
 
 const (
