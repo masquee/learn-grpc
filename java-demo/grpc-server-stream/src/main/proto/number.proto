@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.grpc.serverstream";
+option java_outer_classname = "NumberProto";
+
+package number;
+
+// 服务端流式 RPC：客户端发送一个请求，服务端返回多个响应（流）
+service NumberService {
+  // 返回指定范围内的所有数字
+  rpc GetNumbers (NumberRequest) returns (stream NumberResponse);
+}
+
+message NumberRequest {
+  int32 start = 1;
+  int32 end = 2;
+}
+
+message NumberResponse {
+  int32 number = 1;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.grpc.clientstream";
+option java_outer_classname = "AverageProto";
+
+package average;
+
+// 客户端流式 RPC：客户端发送多个请求（流），服务端返回一个响应
+service AverageService {
+  // 计算一组数字的平均值
+  rpc CalculateAverage (stream NumberMessage) returns (AverageResponse);
+}
+
+message NumberMessage {
+  int32 number = 1;
+}
+
+message AverageResponse {
+  double average = 1;
+}
