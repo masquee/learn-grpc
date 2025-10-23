@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "github.com/example/grpc-go-demo/grpc-basic/proto";
+
+package hello;
+
+// 一元 RPC：客户端发送一个请求，服务端返回一个响应
+service HelloService {
+  // 简单的问候服务
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}

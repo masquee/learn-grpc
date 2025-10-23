@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "github.com/example/grpc-go-demo/grpc-server-stream/proto";
+
+package number;
+
+// 服务端流式 RPC：客户端发送一个请求，服务端返回多个响应（流）
+service NumberService {
+  // 获取指定范围内的所有数字
+  rpc GetNumbers (NumberRequest) returns (stream NumberResponse);
+}
+
+message NumberRequest {
+  int32 start = 1;
+  int32 end = 2;
+}
+
+message NumberResponse {
+  int32 number = 1;
+}

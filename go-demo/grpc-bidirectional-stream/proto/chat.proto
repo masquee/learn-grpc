@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "github.com/example/grpc-go-demo/grpc-bidirectional-stream/proto";
+
+package chat;
+
+// 双向流式 RPC：客户端和服务端都可以发送多个消息（流）
+service ChatService {
+  // 聊天功能：客户端和服务端可以同时发送和接收消息
+  rpc Chat (stream ChatRequest) returns (stream ChatResponse);
+}
+
+message ChatRequest {
+  string user = 1;
+  string message = 2;
+}
+
+message ChatResponse {
+  string user = 1;
+  string message = 2;
+}
